@@ -1,0 +1,1050 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TimeManagementModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TimeManagementModelStoreContainer">
+          <EntitySet Name="Configurations" EntityType="TimeManagementModel.Store.Configurations" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customer" EntityType="TimeManagementModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeeProjects" EntityType="TimeManagementModel.Store.EmployeeProjects" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeeRoles" EntityType="TimeManagementModel.Store.EmployeeRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employees" EntityType="TimeManagementModel.Store.Employees" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Locations" EntityType="TimeManagementModel.Store.Locations" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Logins" EntityType="TimeManagementModel.Store.Logins" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MTS_PROJECTTYPE" EntityType="TimeManagementModel.Store.MTS_PROJECTTYPE" store:Type="Tables" store:Schema="dbo" store:Name="MTS_PROJECTTYPE">
+            <DefiningQuery>SELECT 
+      [MTS_PROJECTTYPE].[Project_TypeID] AS [Project_TypeID], 
+      [MTS_PROJECTTYPE].[Project_Type] AS [Project_Type]
+      FROM [dbo].[MTS_PROJECTTYPE] AS [MTS_PROJECTTYPE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Notes" EntityType="TimeManagementModel.Store.Notes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Projects" EntityType="TimeManagementModel.Store.Projects" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Roles" EntityType="TimeManagementModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tasks" EntityType="TimeManagementModel.Store.Tasks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WeeklyReports" EntityType="TimeManagementModel.Store.WeeklyReports" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WorkCodes" EntityType="TimeManagementModel.Store.WorkCodes" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_EmployeeEmployeeProject" Association="TimeManagementModel.Store.FK_EmployeeEmployeeProject">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="EmployeeProjects" EntitySet="EmployeeProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeEmployeeRole" Association="TimeManagementModel.Store.FK_EmployeeEmployeeRole">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="EmployeeRoles" EntitySet="EmployeeRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeTask" Association="TimeManagementModel.Store.FK_EmployeeTask">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeWeeklyReport" Association="TimeManagementModel.Store.FK_EmployeeWeeklyReport">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="WeeklyReports" EntitySet="WeeklyReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationEmployee" Association="TimeManagementModel.Store.FK_LocationEmployee">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginEmployee" Association="TimeManagementModel.Store.FK_LoginEmployee">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Logins" EntitySet="Logins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEmployeeProject" Association="TimeManagementModel.Store.FK_ProjectEmployeeProject">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="EmployeeProjects" EntitySet="EmployeeProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectTask" Association="TimeManagementModel.Store.FK_ProjectTask">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectWeeklyReport" Association="TimeManagementModel.Store.FK_ProjectWeeklyReport">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="WeeklyReports" EntitySet="WeeklyReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleEmployeeRole" Association="TimeManagementModel.Store.FK_RoleEmployeeRole">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="EmployeeRoles" EntitySet="EmployeeRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeeklyReportNote" Association="TimeManagementModel.Store.FK_WeeklyReportNote">
+            <End Role="WeeklyReports" EntitySet="WeeklyReports" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCodeTask" Association="TimeManagementModel.Store.FK_WorkCodeTask">
+            <End Role="WorkCodes" EntitySet="WorkCodes" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Configurations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Percentage" Type="varchar" MaxLength="50" />
+          <Property Name="Rate" Type="numeric" Precision="15" Scale="2" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="200" />
+          <Property Name="CustomerType" Type="nvarchar" MaxLength="200" />
+          <Property Name="CustomerAddress1" Type="nvarchar" MaxLength="200" />
+          <Property Name="CustomerAddress2" Type="nvarchar" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="EmployeeProjects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LocationId" Type="int" Nullable="false" />
+          <Property Name="Prefix" Type="nvarchar" MaxLength="25" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Suffix" Type="nvarchar" MaxLength="25" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="20" />
+          <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="BillRate" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="EmployeeCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOJ" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOR" Type="varchar" MaxLength="50" />
+          <Property Name="EmailReminder" Type="bit" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Logins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Employee_Id" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TREX_PROD.dbo.MTS_PROJECTTYPE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="MTS_PROJECTTYPE">
+          <Key>
+            <PropertyRef Name="Project_TypeID" />
+            <PropertyRef Name="Project_Type" />
+          </Key>
+          <Property Name="Project_TypeID" Type="int" Nullable="false" />
+          <Property Name="Project_Type" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Notes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="WeeklyReportId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="Number" Type="nvarchar" MaxLength="10" />
+          <Property Name="EstStartDate" Type="datetime" />
+          <Property Name="EstEndDate" Type="datetime" />
+          <Property Name="IsCommon" Type="bit" />
+          <Property Name="TotalAmount" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="Risk" Type="nvarchar" MaxLength="20" />
+          <Property Name="Discount" Type="nvarchar" MaxLength="20" />
+          <Property Name="MarginValue" Type="nvarchar" MaxLength="20" />
+          <Property Name="DiscountAmount" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="Completed" Type="nvarchar" MaxLength="20" />
+          <Property Name="Customer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Te" Type="bit" Nullable="false" />
+          <Property Name="Tm" Type="bit" Nullable="false" />
+          <Property Name="TypeOfProject" Type="int" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="WorkCodeId" Type="int" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ExecutionDate" Type="datetime" Nullable="false" />
+          <Property Name="Hours" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="Charge" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="WeeklyReports">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="Scope" Type="int" Nullable="false" />
+          <Property Name="Schedule" Type="int" Nullable="false" />
+          <Property Name="Quality" Type="int" Nullable="false" />
+          <Property Name="ClientSatisfaction" Type="int" Nullable="false" />
+          <Property Name="ProjectStatus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Risk" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="From" Type="datetime" Nullable="false" />
+          <Property Name="To" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkCodes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="70" />
+          <Property Name="Number" Type="nvarchar" MaxLength="10" />
+          <Property Name="Billable" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_EmployeeEmployeeProject">
+          <End Role="Employees" Type="TimeManagementModel.Store.Employees" Multiplicity="1" />
+          <End Role="EmployeeProjects" Type="TimeManagementModel.Store.EmployeeProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeProjects">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeEmployeeRole">
+          <End Role="Employees" Type="TimeManagementModel.Store.Employees" Multiplicity="1" />
+          <End Role="EmployeeRoles" Type="TimeManagementModel.Store.EmployeeRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeRoles">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeTask">
+          <End Role="Employees" Type="TimeManagementModel.Store.Employees" Multiplicity="1" />
+          <End Role="Tasks" Type="TimeManagementModel.Store.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeWeeklyReport">
+          <End Role="Employees" Type="TimeManagementModel.Store.Employees" Multiplicity="1" />
+          <End Role="WeeklyReports" Type="TimeManagementModel.Store.WeeklyReports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WeeklyReports">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationEmployee">
+          <End Role="Locations" Type="TimeManagementModel.Store.Locations" Multiplicity="1" />
+          <End Role="Employees" Type="TimeManagementModel.Store.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginEmployee">
+          <End Role="Employees" Type="TimeManagementModel.Store.Employees" Multiplicity="0..1" />
+          <End Role="Logins" Type="TimeManagementModel.Store.Logins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Logins">
+              <PropertyRef Name="Employee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEmployeeProject">
+          <End Role="Projects" Type="TimeManagementModel.Store.Projects" Multiplicity="1" />
+          <End Role="EmployeeProjects" Type="TimeManagementModel.Store.EmployeeProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeProjects">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectTask">
+          <End Role="Projects" Type="TimeManagementModel.Store.Projects" Multiplicity="1" />
+          <End Role="Tasks" Type="TimeManagementModel.Store.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectWeeklyReport">
+          <End Role="Projects" Type="TimeManagementModel.Store.Projects" Multiplicity="1" />
+          <End Role="WeeklyReports" Type="TimeManagementModel.Store.WeeklyReports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WeeklyReports">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleEmployeeRole">
+          <End Role="Roles" Type="TimeManagementModel.Store.Roles" Multiplicity="1" />
+          <End Role="EmployeeRoles" Type="TimeManagementModel.Store.EmployeeRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeeklyReportNote">
+          <End Role="WeeklyReports" Type="TimeManagementModel.Store.WeeklyReports" Multiplicity="1" />
+          <End Role="Notes" Type="TimeManagementModel.Store.Notes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeeklyReports">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="WeeklyReportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCodeTask">
+          <End Role="WorkCodes" Type="TimeManagementModel.Store.WorkCodes" Multiplicity="1" />
+          <End Role="Tasks" Type="TimeManagementModel.Store.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkCodes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="WorkCodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TimeManagementModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="PortalDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Locations" EntityType="TimeManagementModel.Location" />
+          <EntitySet Name="Employees" EntityType="TimeManagementModel.Employee" />
+          <AssociationSet Name="LocationEmployee" Association="TimeManagementModel.LocationEmployee">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <EntitySet Name="Tasks" EntityType="TimeManagementModel.Task" />
+          <EntitySet Name="Projects" EntityType="TimeManagementModel.Project" />
+          <EntitySet Name="WorkCodes" EntityType="TimeManagementModel.WorkCode" />
+          <AssociationSet Name="WorkCodeTask" Association="TimeManagementModel.WorkCodeTask">
+            <End Role="WorkCode" EntitySet="WorkCodes" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectTask" Association="TimeManagementModel.ProjectTask">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeTask" Association="TimeManagementModel.EmployeeTask">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <EntitySet Name="Logins" EntityType="TimeManagementModel.Login" />
+          <AssociationSet Name="LoginEmployee" Association="TimeManagementModel.LoginEmployee">
+            <End EntitySet="Logins" Role="Login" />
+            <End EntitySet="Employees" Role="Employee" />
+          </AssociationSet>
+          <EntitySet Name="Roles" EntityType="TimeManagementModel.Role" />
+          <EntitySet Name="EmployeeRoles" EntityType="TimeManagementModel.EmployeeRole" />
+          <AssociationSet Name="EmployeeEmployeeRole" Association="TimeManagementModel.EmployeeEmployeeRole">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="EmployeeRole" EntitySet="EmployeeRoles" />
+          </AssociationSet>
+          <AssociationSet Name="RoleEmployeeRole" Association="TimeManagementModel.RoleEmployeeRole">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="EmployeeRole" EntitySet="EmployeeRoles" />
+          </AssociationSet>
+          <EntitySet Name="EmployeeProjects" EntityType="TimeManagementModel.EmployeeProject" />
+          <AssociationSet Name="EmployeeEmployeeProject" Association="TimeManagementModel.EmployeeEmployeeProject">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="EmployeeProject" EntitySet="EmployeeProjects" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectEmployeeProject" Association="TimeManagementModel.ProjectEmployeeProject">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="EmployeeProject" EntitySet="EmployeeProjects" />
+          </AssociationSet>
+          <EntitySet Name="WeeklyReports" EntityType="TimeManagementModel.WeeklyReport" />
+          <AssociationSet Name="EmployeeWeeklyReport" Association="TimeManagementModel.EmployeeWeeklyReport">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="WeeklyReport" EntitySet="WeeklyReports" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectWeeklyReport" Association="TimeManagementModel.ProjectWeeklyReport">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="WeeklyReport" EntitySet="WeeklyReports" />
+          </AssociationSet>
+          <EntitySet Name="Notes" EntityType="TimeManagementModel.Note" />
+          <AssociationSet Name="WeeklyReportNote" Association="TimeManagementModel.WeeklyReportNote">
+            <End Role="WeeklyReport" EntitySet="WeeklyReports" />
+            <End Role="Note" EntitySet="Notes" />
+          </AssociationSet>
+          <EntitySet Name="Customers" EntityType="TimeManagementModel.Customer" />
+          <EntitySet Name="Configurations" EntityType="TimeManagementModel.Configuration" />
+          <EntitySet Name="MTS_PROJECTTYPE" EntityType="TimeManagementModel.MTS_PROJECTTYPE" />
+        </EntityContainer>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Employees" Relationship="TimeManagementModel.LocationEmployee" FromRole="Location" ToRole="Employee" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Location" Relationship="TimeManagementModel.LocationEmployee" FromRole="Employee" ToRole="Location" />
+          <Property Type="Int32" Name="LocationId" Nullable="false" />
+          <NavigationProperty Name="Tasks" Relationship="TimeManagementModel.EmployeeTask" FromRole="Employee" ToRole="Task" />
+          <Property Type="String" Name="Prefix" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Suffix" Nullable="true" MaxLength="25" />
+          <NavigationProperty Name="Login" Relationship="TimeManagementModel.LoginEmployee" FromRole="Employee" ToRole="Login" />
+          <NavigationProperty Name="EmployeeRoles" Relationship="TimeManagementModel.EmployeeEmployeeRole" FromRole="Employee" ToRole="EmployeeRole" />
+          <NavigationProperty Name="EmployeeProjects" Relationship="TimeManagementModel.EmployeeEmployeeProject" FromRole="Employee" ToRole="EmployeeProject" />
+          <NavigationProperty Name="WeeklyReports" Relationship="TimeManagementModel.EmployeeWeeklyReport" FromRole="Employee" ToRole="WeeklyReport" />
+          <Property Type="Decimal" Name="BillRate" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="String" Name="CompanyName" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Cost" Precision="10" Scale="2" />
+          <Property Type="String" Name="EmployeeCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DOB" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DOJ" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mobile" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DOR" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="EmailReminder" />
+        </EntityType>
+        <Association Name="LocationEmployee">
+          <End Type="TimeManagementModel.Location" Role="Location" Multiplicity="1" />
+          <End Type="TimeManagementModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="WorkCode" Relationship="TimeManagementModel.WorkCodeTask" FromRole="Task" ToRole="WorkCode" />
+          <Property Type="Int32" Name="WorkCodeId" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="TimeManagementModel.ProjectTask" FromRole="Task" ToRole="Project" />
+          <Property Type="Int32" Name="ProjectId" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="TimeManagementModel.EmployeeTask" FromRole="Task" ToRole="Employee" />
+          <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="DateTime" Name="ExecutionDate" Nullable="false" />
+          <Property Type="Decimal" Name="Hours" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" />
+          <Property Type="Decimal" Name="Charge" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Tasks" Relationship="TimeManagementModel.ProjectTask" FromRole="Project" ToRole="Task" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Number" Nullable="true" MaxLength="10" />
+          <NavigationProperty Name="EmployeeProjects" Relationship="TimeManagementModel.ProjectEmployeeProject" FromRole="Project" ToRole="EmployeeProject" />
+          <NavigationProperty Name="WeeklyReports" Relationship="TimeManagementModel.ProjectWeeklyReport" FromRole="Project" ToRole="WeeklyReport" />
+          <Property Type="DateTime" Name="EstStartDate" Nullable="true" />
+          <Property Type="DateTime" Name="EstEndDate" Nullable="true" />
+          <Property Type="Boolean" Name="IsCommon" Nullable="true" />
+          <Property Type="String" Name="Customer" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Type="Decimal" Name="TotalAmount" Precision="15" Scale="2" />
+          <Property Type="String" Name="Risk" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Discount" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MarginValue" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="DiscountAmount" Precision="15" Scale="2" />
+          <Property Type="String" Name="Completed" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Te" Nullable="false" />
+          <Property Type="Boolean" Name="Tm" Nullable="false" />
+          <Property Type="Int32" Name="TypeOfProject" />
+        </EntityType>
+        <EntityType Name="WorkCode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Tasks" Relationship="TimeManagementModel.WorkCodeTask" FromRole="WorkCode" ToRole="Task" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="Number" Nullable="true" MaxLength="10" />
+          <Property Type="Boolean" Name="Billable" Nullable="false" />
+        </EntityType>
+        <Association Name="WorkCodeTask">
+          <End Type="TimeManagementModel.WorkCode" Role="WorkCode" Multiplicity="1" />
+          <End Type="TimeManagementModel.Task" Role="Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkCode">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="WorkCodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProjectTask">
+          <End Type="TimeManagementModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="TimeManagementModel.Task" Role="Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeTask">
+          <End Type="TimeManagementModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TimeManagementModel.Task" Role="Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserId" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="255" />
+          <NavigationProperty Name="Employee" Relationship="TimeManagementModel.LoginEmployee" FromRole="Login" ToRole="Employee" />
+          <Property Type="Int32" Name="Status" Nullable="true" />
+        </EntityType>
+        <Association Name="LoginEmployee">
+          <End Type="TimeManagementModel.Login" Multiplicity="1" Role="Login" />
+          <End Type="TimeManagementModel.Employee" Multiplicity="1" Role="Employee" />
+        </Association>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="15" />
+          <NavigationProperty Name="EmployeeRoles" Relationship="TimeManagementModel.RoleEmployeeRole" FromRole="Role" ToRole="EmployeeRole" />
+        </EntityType>
+        <EntityType Name="EmployeeRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Employee" Relationship="TimeManagementModel.EmployeeEmployeeRole" FromRole="EmployeeRole" ToRole="Employee" />
+          <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="TimeManagementModel.RoleEmployeeRole" FromRole="EmployeeRole" ToRole="Role" />
+          <Property Type="Int32" Name="RoleId" Nullable="false" />
+        </EntityType>
+        <Association Name="EmployeeEmployeeRole">
+          <End Type="TimeManagementModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TimeManagementModel.EmployeeRole" Role="EmployeeRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeRole">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RoleEmployeeRole">
+          <End Type="TimeManagementModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="TimeManagementModel.EmployeeRole" Role="EmployeeRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmployeeProject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Employee" Relationship="TimeManagementModel.EmployeeEmployeeProject" FromRole="EmployeeProject" ToRole="Employee" />
+          <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="TimeManagementModel.ProjectEmployeeProject" FromRole="EmployeeProject" ToRole="Project" />
+          <Property Type="Int32" Name="ProjectId" Nullable="false" />
+        </EntityType>
+        <Association Name="EmployeeEmployeeProject">
+          <End Type="TimeManagementModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TimeManagementModel.EmployeeProject" Role="EmployeeProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeProject">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProjectEmployeeProject">
+          <End Type="TimeManagementModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="TimeManagementModel.EmployeeProject" Role="EmployeeProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeProject">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="WeeklyReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Employee" Relationship="TimeManagementModel.EmployeeWeeklyReport" FromRole="WeeklyReport" ToRole="Employee" />
+          <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="TimeManagementModel.ProjectWeeklyReport" FromRole="WeeklyReport" ToRole="Project" />
+          <Property Type="Int32" Name="ProjectId" Nullable="false" />
+          <Property Type="Int32" Name="Scope" Nullable="false" />
+          <Property Type="Int32" Name="Schedule" Nullable="false" />
+          <Property Type="Int32" Name="Quality" Nullable="false" />
+          <Property Type="Int32" Name="ClientSatisfaction" Nullable="false" />
+          <Property Type="String" Name="ProjectStatus" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="Risk" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" />
+          <Property Type="DateTime" Name="From" Nullable="false" />
+          <Property Type="DateTime" Name="To" Nullable="false" />
+          <NavigationProperty Name="Notes" Relationship="TimeManagementModel.WeeklyReportNote" FromRole="WeeklyReport" ToRole="Note" />
+        </EntityType>
+        <Association Name="EmployeeWeeklyReport">
+          <End Type="TimeManagementModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TimeManagementModel.WeeklyReport" Role="WeeklyReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WeeklyReport">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProjectWeeklyReport">
+          <End Type="TimeManagementModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="TimeManagementModel.WeeklyReport" Role="WeeklyReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WeeklyReport">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="UserId" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" />
+          <NavigationProperty Name="WeeklyReport" Relationship="TimeManagementModel.WeeklyReportNote" FromRole="Note" ToRole="WeeklyReport" />
+          <Property Type="Int32" Name="WeeklyReportId" Nullable="false" />
+        </EntityType>
+        <Association Name="WeeklyReportNote">
+          <End Type="TimeManagementModel.WeeklyReport" Role="WeeklyReport" Multiplicity="1" />
+          <End Type="TimeManagementModel.Note" Role="Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeeklyReport">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="WeeklyReportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Type="Int32" Name="CustomerId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CustomerName" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerType" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerAddress1" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerAddress2" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Percentage" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Rate" Precision="15" Scale="2" />
+        </EntityType>
+        <EntityType Name="MTS_PROJECTTYPE">
+          <Key>
+            <PropertyRef Name="Project_TypeID" />
+            <PropertyRef Name="Project_Type" />
+          </Key>
+          <Property Type="Int32" Name="Project_TypeID" Nullable="false" />
+          <Property Type="String" Name="Project_Type" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TimeManagementModelStoreContainer" CdmEntityContainer="PortalDBContext">
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="IsTypeOf(TimeManagementModel.Location)">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="IsTypeOf(TimeManagementModel.Employee)">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmailReminder" ColumnName="EmailReminder" />
+                <ScalarProperty Name="DOR" ColumnName="DOR" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="BillRate" ColumnName="BillRate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="IsTypeOf(TimeManagementModel.Task)">
+        <MappingFragment StoreEntitySet="Tasks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="WorkCodeId" ColumnName="WorkCodeId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Charge" ColumnName="Charge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkCodes">
+      <EntityTypeMapping TypeName="IsTypeOf(TimeManagementModel.WorkCode)">
+        <MappingFragment StoreEntitySet="WorkCodes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Billable" ColumnName="Billable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(TimeManagementModel.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(TimeManagementModel.EmployeeRole)">
+        <MappingFragment StoreEntitySet="EmployeeRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeProjects">
+      <EntityTypeMapping TypeName="IsTypeOf(TimeManagementModel.EmployeeProject)">
+        <MappingFragment StoreEntitySet="EmployeeProjects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeeklyReports">
+      <EntityTypeMapping TypeName="IsTypeOf(TimeManagementModel.WeeklyReport)">
+        <MappingFragment StoreEntitySet="WeeklyReports">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Scope" ColumnName="Scope" />
+          <ScalarProperty Name="Schedule" ColumnName="Schedule" />
+          <ScalarProperty Name="Quality" ColumnName="Quality" />
+          <ScalarProperty Name="ClientSatisfaction" ColumnName="ClientSatisfaction" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="Risk" ColumnName="Risk" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="To" ColumnName="To" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notes">
+      <EntityTypeMapping TypeName="IsTypeOf(TimeManagementModel.Note)">
+        <MappingFragment StoreEntitySet="Notes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="WeeklyReportId" ColumnName="WeeklyReportId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="LoginEmployee" TypeName="TimeManagementModel.LoginEmployee" StoreEntitySet="Logins">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Employee_Id" />
+      </EndProperty>
+      <EndProperty Name="Login">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="TimeManagementModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CustomerAddress2" ColumnName="CustomerAddress2" />
+                <ScalarProperty Name="CustomerAddress1" ColumnName="CustomerAddress1" />
+                <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="IsTypeOf(TimeManagementModel.Project)">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="TypeOfProject" ColumnName="TypeOfProject" />
+                <ScalarProperty Name="Tm" ColumnName="Tm" />
+                <ScalarProperty Name="Te" ColumnName="Te" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="MarginValue" ColumnName="MarginValue" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Risk" ColumnName="Risk" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="IsCommon" ColumnName="IsCommon" />
+                <ScalarProperty Name="EstEndDate" ColumnName="EstEndDate" />
+                <ScalarProperty Name="EstStartDate" ColumnName="EstStartDate" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Configurations">
+            <EntityTypeMapping TypeName="TimeManagementModel.Configuration">
+              <MappingFragment StoreEntitySet="Configurations">
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="IsTypeOf(TimeManagementModel.Login)">
+              <MappingFragment StoreEntitySet="Logins">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTS_PROJECTTYPE">
+            <EntityTypeMapping TypeName="TimeManagementModel.MTS_PROJECTTYPE">
+              <MappingFragment StoreEntitySet="MTS_PROJECTTYPE">
+                <ScalarProperty Name="Project_Type" ColumnName="Project_Type" />
+                <ScalarProperty Name="Project_TypeID" ColumnName="Project_TypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DBModel" ZoomLevel="106">
+        <EntityTypeShape EntityType="TimeManagementModel.Location" Width="1.5" PointX="1.25" PointY="1.375" Height="1.59568359375" />
+        <EntityTypeShape EntityType="TimeManagementModel.Employee" Width="1.5" PointX="3.75" PointY="1.375" Height="3.7109993489583326" />
+        <AssociationConnector Association="TimeManagementModel.LocationEmployee">
+          <ConnectorPoint PointX="2.75" PointY="2.172841796875" />
+          <ConnectorPoint PointX="3.75" PointY="2.172841796875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TimeManagementModel.Task" Width="1.5" PointX="6" PointY="1.375" Height="3.3263964843749996" />
+        <EntityTypeShape EntityType="TimeManagementModel.Project" Width="1.5" PointX="8.5" PointY="3.625" Height="4.0956022135416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeManagementModel.WorkCode" Width="1.5" PointX="8.5" PointY="1.375" Height="1.9802864583333339" />
+        <AssociationConnector Association="TimeManagementModel.WorkCodeTask">
+          <ConnectorPoint PointX="8.5" PointY="2.3651432291666667" />
+          <ConnectorPoint PointX="7.5" PointY="2.3651432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="TimeManagementModel.ProjectTask">
+          <ConnectorPoint PointX="8.5" PointY="4.1631982421875" />
+          <ConnectorPoint PointX="7.5" PointY="4.1631982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="TimeManagementModel.EmployeeTask">
+          <ConnectorPoint PointX="5.25" PointY="3.0381982421875" />
+          <ConnectorPoint PointX="6" PointY="3.0381982421875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TimeManagementModel.Login" Width="1.5" PointX="1.25" PointY="3.5" Height="1.9802864583333335" IsExpanded="true" />
+        <AssociationConnector Association="TimeManagementModel.LoginEmployee">
+          <ConnectorPoint PointX="2.75" PointY="4.4901432291666667" />
+          <ConnectorPoint PointX="3.75" PointY="4.4901432291666667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TimeManagementModel.Role" Width="1.5" PointX="1.375" PointY="8.25" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="TimeManagementModel.EmployeeRole" Width="1.5" PointX="1.75" PointY="5.875" Height="1.9802864583333326" />
+        <AssociationConnector Association="TimeManagementModel.EmployeeEmployeeRole">
+          <ConnectorPoint PointX="3.75" PointY="6.1535546875" />
+          <ConnectorPoint PointX="3.25" PointY="6.1535546875" />
+        </AssociationConnector>
+        <AssociationConnector Association="TimeManagementModel.RoleEmployeeRole">
+          <ConnectorPoint PointX="2.3125" PointY="8.25" />
+          <ConnectorPoint PointX="2.3125" PointY="7.8552864583333326" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TimeManagementModel.EmployeeProject" Width="1.5" PointX="6" PointY="5" Height="1.9802864583333326" />
+        <AssociationConnector Association="TimeManagementModel.EmployeeEmployeeProject">
+          <ConnectorPoint PointX="5.25" PointY="5.2353011067708328" />
+          <ConnectorPoint PointX="6" PointY="5.2353011067708328" />
+        </AssociationConnector>
+        <AssociationConnector Association="TimeManagementModel.ProjectEmployeeProject">
+          <ConnectorPoint PointX="8.5" PointY="5.9901432291666659" />
+          <ConnectorPoint PointX="7.5" PointY="5.9901432291666659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TimeManagementModel.WeeklyReport" Width="1.5" PointX="6" PointY="7.5" Height="3.7109993489583335" />
+        <AssociationConnector Association="TimeManagementModel.EmployeeWeeklyReport">
+          <ConnectorPoint PointX="4.71875" PointY="5.4706022135416656" />
+          <ConnectorPoint PointX="4.71875" PointY="9.5355436197916656" />
+          <ConnectorPoint PointX="6" PointY="9.5355436197916656" />
+        </AssociationConnector>
+        <AssociationConnector Association="TimeManagementModel.ProjectWeeklyReport">
+          <ConnectorPoint PointX="8.5" PointY="7.7206022135416656" />
+          <ConnectorPoint PointX="8.1250000000000018" PointY="8.0956022135416656" />
+          <ConnectorPoint PointX="7.875" PointY="8.0956022135416656" />
+          <ConnectorPoint PointX="7.875" PointY="7.125" />
+          <ConnectorPoint PointX="7.5" PointY="7.5" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TimeManagementModel.Note" Width="1.5" PointX="8.5" PointY="9.25" Height="1.7879850260416657" />
+        <AssociationConnector Association="TimeManagementModel.WeeklyReportNote">
+          <ConnectorPoint PointX="7.5" PointY="10.326650390625" />
+          <ConnectorPoint PointX="8.5" PointY="10.326650390625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TimeManagementModel.Customer" Width="1.5" PointX="10.875" PointY="3.625" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="TimeManagementModel.Configuration" Width="1.5" PointX="10.625" PointY="1.5" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="TimeManagementModel.MTS_PROJECTTYPE" Width="1.5" PointX="0.75" PointY="10.75" Height="1.4033821614583388" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

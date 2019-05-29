@@ -1,0 +1,153 @@
+﻿USE [MTS-PORTAL]
+GO
+/****** Object:  Table [dbo].[Roles]    Script Date: 04/02/2013 10:30:10 ******/
+SET IDENTITY_INSERT [dbo].[Roles] ON
+INSERT [dbo].[Roles] ([Id], [Name]) VALUES (1, N'Administrator')
+INSERT [dbo].[Roles] ([Id], [Name]) VALUES (2, N'User')
+SET IDENTITY_INSERT [dbo].[Roles] OFF
+/****** Object:  Table [dbo].[Projects]    Script Date: 04/02/2013 10:30:10 ******/
+SET IDENTITY_INSERT [dbo].[Projects] ON
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (1, N'MTS Internal Software Support', N'1000', NULL, NULL, 1)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (2, N'MTS Internal Conversion Support', N'1001', NULL, NULL, 1)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (3, N'MTS Pre-Sales Support', N'1002', NULL, NULL, 1)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (4, N'Leave', N'1003', NULL, NULL, 1)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (5, N'On Bench/Self Study', N'1004', NULL, NULL, 1)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (6, N'Service Contract Support', N'1005', NULL, NULL, 1)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (7, N'DELCO WRITS', N'1006', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (8, N'DELCO OJS RM ', N'1007', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (9, N'DELCO DA RM', N'1008', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (10, N'DELCO Medical Examiner RM', N'1009', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (11, N'DELCO Sheriff Weapons RM', N'1010', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (12, N'Indian River State College Fortis ECM', N'1011', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (13, N'Palm Beach Sheriff OnBase ECM', N'1012', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (14, N'City of Coral Springs OnBase ECM', N'1013', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (15, N'Leaf Financial OnBase ECM', N'1014', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (16, N'Sun Bank OnBase ECM', N'1015', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (17, N'Marlin Leasing Migration', N'1016', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (18, N'Coral Springs Migration', N'1017', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (19, N'Islamorada Conversion', N'1018', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (20, N'PBSO Migration', N'1019', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (21, N'CCC OnBase ECM', N'1020', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (22, N'BWWS Fortis ECM', N'1021', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (23, N'Rally Manufacturing Fortis ECM', N'1022', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (24, N'Morris Company Fortis ECM', N'1023', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (25, N'CHHA OnBase ECM', N'1024', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (26, N'Rutgers Conversion', N'1025', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (27, N'StoneMor IntellaFlo', N'1026', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (28, N'AAA TransFlo', N'1027', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (29, N'Pemberton Voucher Management', N'1028', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (30, N'Radian POC (Ephesoft)', N'1029', NULL, NULL, NULL)
+INSERT [dbo].[Projects] ([Id], [Name], [Number], [EstStartDate], [EstEndDate], [IsCommon]) VALUES (31, N'Periop Batch Tracking System', N'1030', NULL, NULL, NULL)
+SET IDENTITY_INSERT [dbo].[Projects] OFF
+/****** Object:  Table [dbo].[WorkCodes]    Script Date: 04/02/2013 10:30:10 ******/
+SET IDENTITY_INSERT [dbo].[WorkCodes] ON
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (1, N'Pre-Sales Presentation - Demo ', N'1000', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (2, N'Development/Coding/Unit Testing', N'1001', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (3, N'Discussion Meeting - External', N'1002', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (4, N'Discussion Meeting - Internal', N'1003', 0)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (5, N'Document Preparation', N'1004', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (6, N'Document Review/Approval', N'1005', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (7, N'Mail Communication', N'1006', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (8, N'On Bench', N'1007', 0)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (9, N'Misc/Other Billable Task', N'1008', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (10, N'Misc/Other Non-Billable Task', N'1009', 0)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (11, N'Onsite Software Installation', N'1010', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (12, N'Onsite Client Training', N'1011', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (13, N'Onsite UAT Support', N'1012', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (14, N'Onsite Production Support', N'1013', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (15, N'Offsite Production Support', N'1014', 0)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (16, N'Project Management', N'1015', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (17, N'QA-Integration Testing', N'1016', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (18, N'Self Study', N'1017', 0)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (19, N'Downtime', N'1018', 0)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (20, N'Travel', N'1019', 1)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (21, N'Vacation', N'1020', 0)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (22, N'Company Holiday', N'1021', 0)
+INSERT [dbo].[WorkCodes] ([Id], [Name], [Number], [Billable]) VALUES (23, N'Sick Leave', N'1022', 0)
+SET IDENTITY_INSERT [dbo].[WorkCodes] OFF
+/****** Object:  Table [dbo].[Locations]    Script Date: 04/02/2013 10:30:10 ******/
+SET IDENTITY_INSERT [dbo].[Locations] ON
+INSERT [dbo].[Locations] ([Id], [Name]) VALUES (1, N'MTS-US')
+INSERT [dbo].[Locations] ([Id], [Name]) VALUES (2, N'MTS-India')
+SET IDENTITY_INSERT [dbo].[Locations] OFF
+/****** Object:  Table [dbo].[Employees]    Script Date: 04/02/2013 10:30:10 ******/
+SET IDENTITY_INSERT [dbo].[Employees] ON
+INSERT [dbo].[Employees] ([Id], [LocationId], [Prefix], [FirstName], [MiddleName], [LastName], [Suffix]) VALUES (1, 1, NULL, N'Atit', NULL, N'Patel', NULL)
+INSERT [dbo].[Employees] ([Id], [LocationId], [Prefix], [FirstName], [MiddleName], [LastName], [Suffix]) VALUES (2, 1, NULL, N'Bhavik', NULL, N'Patel', NULL)
+INSERT [dbo].[Employees] ([Id], [LocationId], [Prefix], [FirstName], [MiddleName], [LastName], [Suffix]) VALUES (3, 1, NULL, N'Prasad', NULL, N'Subramaniam', NULL)
+INSERT [dbo].[Employees] ([Id], [LocationId], [Prefix], [FirstName], [MiddleName], [LastName], [Suffix]) VALUES (4, 1, NULL, N'Jay', NULL, N'Shore', NULL)
+INSERT [dbo].[Employees] ([Id], [LocationId], [Prefix], [FirstName], [MiddleName], [LastName], [Suffix]) VALUES (5, 1, NULL, N'Ed', NULL, N'Berry', NULL)
+INSERT [dbo].[Employees] ([Id], [LocationId], [Prefix], [FirstName], [MiddleName], [LastName], [Suffix]) VALUES (6, 1, NULL, N'Anthony', NULL, N'Catanzariti', NULL)
+INSERT [dbo].[Employees] ([Id], [LocationId], [Prefix], [FirstName], [MiddleName], [LastName], [Suffix]) VALUES (7, 1, NULL, N'Mark', NULL, N'Wheelock', NULL)
+INSERT [dbo].[Employees] ([Id], [LocationId], [Prefix], [FirstName], [MiddleName], [LastName], [Suffix]) VALUES (8, 1, NULL, N'Marc', NULL, N'Marchitelli', NULL)
+INSERT [dbo].[Employees] ([Id], [LocationId], [Prefix], [FirstName], [MiddleName], [LastName], [Suffix]) VALUES (9, 1, NULL, N'Todd', NULL, N'Priest', NULL)
+INSERT [dbo].[Employees] ([Id], [LocationId], [Prefix], [FirstName], [MiddleName], [LastName], [Suffix]) VALUES (10, 1, NULL, N'Leo', NULL, N'Reyes', NULL)
+INSERT [dbo].[Employees] ([Id], [LocationId], [Prefix], [FirstName], [MiddleName], [LastName], [Suffix]) VALUES (11, 1, NULL, N'Jeff', NULL, N'Dayton', NULL)
+SET IDENTITY_INSERT [dbo].[Employees] OFF
+/****** Object:  Table [dbo].[Logins]    Script Date: 04/02/2013 10:30:10 ******/
+SET IDENTITY_INSERT [dbo].[Logins] ON
+INSERT [dbo].[Logins] ([Id], [UserId], [Password], [Employee_Id]) VALUES (1, N'apatel', N'apatel225', 1)
+INSERT [dbo].[Logins] ([Id], [UserId], [Password], [Employee_Id]) VALUES (2, N'bpatel', N'bpatel225', 2)
+INSERT [dbo].[Logins] ([Id], [UserId], [Password], [Employee_Id]) VALUES (3, N'psubramaniam', N'psubramaniam225', 3)
+INSERT [dbo].[Logins] ([Id], [UserId], [Password], [Employee_Id]) VALUES (4, N'jshore', N'jshore225', 4)
+INSERT [dbo].[Logins] ([Id], [UserId], [Password], [Employee_Id]) VALUES (5, N'eberry', N'eberry225', 5)
+INSERT [dbo].[Logins] ([Id], [UserId], [Password], [Employee_Id]) VALUES (6, N'acatanzariti', N'acatanzariti225', 6)
+INSERT [dbo].[Logins] ([Id], [UserId], [Password], [Employee_Id]) VALUES (7, N'mwheelock', N'mwheelock225', 7)
+INSERT [dbo].[Logins] ([Id], [UserId], [Password], [Employee_Id]) VALUES (8, N'mmarchitelli', N'mmarchitelli225', 8)
+INSERT [dbo].[Logins] ([Id], [UserId], [Password], [Employee_Id]) VALUES (9, N'tpriest', N'tpriest225', 9)
+INSERT [dbo].[Logins] ([Id], [UserId], [Password], [Employee_Id]) VALUES (10, N'lreyes', N'lreyes225', 10)
+INSERT [dbo].[Logins] ([Id], [UserId], [Password], [Employee_Id]) VALUES (11, N'jdayton', N'jdayton225', 11)
+SET IDENTITY_INSERT [dbo].[Logins] OFF
+/****** Object:  Table [dbo].[EmployeeRoles]    Script Date: 04/02/2013 10:30:10 ******/
+SET IDENTITY_INSERT [dbo].[EmployeeRoles] ON
+INSERT [dbo].[EmployeeRoles] ([Id], [EmployeeId], [RoleId]) VALUES (1, 1, 1)
+INSERT [dbo].[EmployeeRoles] ([Id], [EmployeeId], [RoleId]) VALUES (2, 2, 1)
+INSERT [dbo].[EmployeeRoles] ([Id], [EmployeeId], [RoleId]) VALUES (3, 3, 1)
+INSERT [dbo].[EmployeeRoles] ([Id], [EmployeeId], [RoleId]) VALUES (4, 4, 2)
+INSERT [dbo].[EmployeeRoles] ([Id], [EmployeeId], [RoleId]) VALUES (5, 5, 2)
+INSERT [dbo].[EmployeeRoles] ([Id], [EmployeeId], [RoleId]) VALUES (6, 6, 2)
+INSERT [dbo].[EmployeeRoles] ([Id], [EmployeeId], [RoleId]) VALUES (7, 7, 2)
+INSERT [dbo].[EmployeeRoles] ([Id], [EmployeeId], [RoleId]) VALUES (8, 8, 2)
+INSERT [dbo].[EmployeeRoles] ([Id], [EmployeeId], [RoleId]) VALUES (10, 9, 2)
+INSERT [dbo].[EmployeeRoles] ([Id], [EmployeeId], [RoleId]) VALUES (11, 10, 2)
+INSERT [dbo].[EmployeeRoles] ([Id], [EmployeeId], [RoleId]) VALUES (12, 11, 2)
+SET IDENTITY_INSERT [dbo].[EmployeeRoles] OFF
+/****** Object:  Table [dbo].[EmployeeProjects]    Script Date: 04/02/2013 10:30:10 ******/
+SET IDENTITY_INSERT [dbo].[EmployeeProjects] ON
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (1, 5, 7)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (2, 5, 8)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (3, 5, 9)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (4, 5, 10)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (5, 5, 11)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (6, 6, 7)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (7, 6, 8)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (8, 6, 9)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (9, 6, 10)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (10, 6, 11)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (11, 7, 12)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (12, 7, 13)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (13, 7, 14)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (14, 8, 15)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (15, 9, 16)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (16, 9, 17)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (17, 9, 18)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (18, 9, 19)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (19, 9, 20)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (20, 9, 21)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (21, 10, 22)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (22, 10, 23)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (23, 10, 24)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (24, 3, 25)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (25, 3, 26)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (26, 11, 25)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (27, 11, 26)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (28, 3, 27)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (29, 1, 27)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (30, 1, 28)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (31, 1, 29)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (32, 1, 30)
+INSERT [dbo].[EmployeeProjects] ([Id], [EmployeeId], [ProjectId]) VALUES (33, 1, 31)
+SET IDENTITY_INSERT [dbo].[EmployeeProjects] OFF
+/****** Object:  Table [dbo].[WeeklyReports]    Script Date: 04/02/2013 10:30:10 ******/
+/****** Object:  Table [dbo].[Tasks]    Script Date: 04/02/2013 10:30:10 ******/
+/****** Object:  Table [dbo].[Notes]    Script Date: 04/02/2013 10:30:10 ******/
