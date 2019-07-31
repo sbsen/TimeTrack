@@ -1,2 +1,1 @@
-*.js linguist-language=c#
-*.html linguist-language=c#
+*.HTML linguist-language=c#
